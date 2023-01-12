@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import CaughtPokemon from "./CaughtPokemon"
+import Navbar from "./Navbar";
+import UncaughtPokemon from "./UncaughtPokemon"
+import WildPokemon from "./WildPokemon";
+import Home from "./Home";
+import AddPokemon from "./AddPokemon"
 
 function App() {
+
+  const [allPokemon, setAllPokemon] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:4000/pokemon")
+      .then((data) => data.json())
+      .then((pokemons) => setAllPokemon(pokemons))
+  }, [])
+
+  const caughtPokemon = allPokemon.filter(singlePokemon => singlePokemon.caught === true)
+
+  const uncaughtPokemon = allPokemon.filter(singlePokemon => singlePokemon.caught === false)
+
+  console.log("this is uncaught", uncaughtPokemon)
+  console.log("this is caught pokemon", caughtPokemon)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Navbar />
+      <Switch>
+        <Route exact path="/CaughtPokemon">
+          <CaughtPokemon caughtPokemon={caughtPokemon} />
+        </Route>
+        <Route exact path="/UncaughtPokemon">
+          <UncaughtPokemon uncaughtPokemon={uncaughtPokemon} />
+        </Route>
+        <Route exact path="/WildPokemon">
+          <WildPokemon uncaughtPokemon={uncaughtPokemon} caughtPokemon={caughtPokemon} />
+        </Route>
+        <Route exact path="/AddPokemon">
+          <AddPokemon uncaughtPokemon={uncaughtPokemon}/>
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
