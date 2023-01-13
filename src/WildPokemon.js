@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function WildPokemon({ setUncaughtPokemon, uncaughtPokemon, setCaughtPokemon, caughtPokemon }) {
+function WildPokemon({ allPokemon, uncaughtPokemon, caughtPokemon, setAllPokemon}) {
 
     function getRandomInteger(min, max) {
         return Math.round(Math.random() * (max - min) + min)
@@ -10,8 +10,9 @@ function WildPokemon({ setUncaughtPokemon, uncaughtPokemon, setCaughtPokemon, ca
     // created a state for each conditional
     const [pokemonCaught, setPokemonCaught] = useState(false)
     const [pokemonRan, setPokemonRan] = useState(false)
-    const [showGame, setShowGame] = useState(true)
     const [triedToRun, setTriedToRun] = useState(false)
+    // created a state to display the game
+    const [showGame, setShowGame] = useState(true)
 
     useEffect(() => {
       setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))  
@@ -100,9 +101,15 @@ function WildPokemon({ setUncaughtPokemon, uncaughtPokemon, setCaughtPokemon, ca
     }
 
     function handleNewPokemon(newPokemon) {
-        setCaughtPokemon([...caughtPokemon, newPokemon])
-        const updatedArray = uncaughtPokemon.filter((pokemon) => pokemon.id !== newPokemon.id);
-        setUncaughtPokemon(updatedArray)
+        const newArrayOfUpdatedPokemon = allPokemon.filter((individualPokemon) => {
+            if(individualPokemon.id === newPokemon.id) {
+                return newPokemon
+            } else {
+                return individualPokemon
+            }
+        })
+        setAllPokemon(newArrayOfUpdatedPokemon)
+        console.log(newPokemon)
     }
 
     return (
