@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 
 function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
 
+    // function for creating random integers
     function getRandomInteger(min, max) {
         return Math.round(Math.random() * (max - min) + min)
     }
-    // created state to change pokemon displayed
+    // created state to change pokemon index on uncaughtPokemon array
     const [pokemonIndex, setPokemonIndex] = useState(0)
+
     // created a state for each conditional
     const [pokemonCaught, setPokemonCaught] = useState(false)
     const [pokemonRan, setPokemonRan] = useState(false)
@@ -14,6 +16,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
     // created a state to display the game
     const [showGame, setShowGame] = useState(true)
 
+    //current random pokemon
     let randomPokemon = uncaughtPokemon[pokemonIndex]
 
     // these useEffects are to reset states back to default
@@ -58,7 +61,12 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
     }, [triedToRun])
 
     
-
+    // handleCatch function gets three random intergers
+    // pokeball the integer for how likly to catch pokemon
+    // chanceToCatch which is an integer for how likly to catch pokemon
+    // chance of escape
+    // if pokeball is greater than or equal to than chanceToCatch then the pokemon is caught
+    // if not then
 
     function handleCatch() {
         const chanceToCatch = getRandomInteger(0, 100)
@@ -70,9 +78,9 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
         if (pokeball >= chanceToCatch) {
             return onCatch(randomPokemon)
         } else {
-            const chanceToRun = getRandomInteger(0, 5)
-            console.log("chance to run away", chanceToRun)
-            if(chanceToRun >= 2) {
+            const chanceOfEscape = getRandomInteger(0, 5)
+            console.log("chance to run away", chanceOfEscape)
+            if(chanceOfEscape >= 1) {
                 setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
                 setPokemonRan(true)
                 setShowGame(false)
