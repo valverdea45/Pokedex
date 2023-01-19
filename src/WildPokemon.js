@@ -122,6 +122,13 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
         setAllPokemon(newArrayOfUpdatedPokemon)
     }
 
+    // in the JSX bellow the default values for the conditionals are as follows
+    // showGame = true
+    // pokemoncaught = false
+    // pokemonRan = false
+    // triedToRun =  false
+    // depending on the results of handleCatch these boolean values will change but the useEffect functions above will reset to these default boolean values
+    
     return (
         <div>
             {showGame ? (
