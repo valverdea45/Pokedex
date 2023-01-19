@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
+function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
 
     // function for creating random integers
     function getRandomInteger(min, max) {
@@ -21,7 +21,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
 
     // these useEffects are to reset states back to default
     useEffect(() => {
-      setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))  
+        setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
     }, [uncaughtPokemon])
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
         return () => {
             clearTimeout(timeoutId)
         }
-    },[pokemonCaught])
+    }, [pokemonCaught])
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -53,14 +53,14 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-           setTriedToRun(false) 
+            setTriedToRun(false)
         }, 1000);
         return () => {
             clearTimeout(timeoutId)
         }
     }, [triedToRun])
 
-    
+
     // handleCatch function gets three random intergers
     // pokeball the integer for how likly to catch pokemon
     // chanceToCatch which is an integer for how likly to catch pokemon
@@ -71,7 +71,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
     function handleCatch() {
         const chanceToCatch = getRandomInteger(0, 100)
         const pokeball = getRandomInteger(0, 100)
-        
+
         console.log("was it caught?", pokeball >= chanceToCatch)
 
 
@@ -80,16 +80,16 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
         } else {
             const chanceOfEscape = getRandomInteger(0, 5)
             console.log("chance to run away", chanceOfEscape)
-            if(chanceOfEscape >= 1) {
+            if (chanceOfEscape >= 1) {
                 setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
                 setPokemonRan(true)
                 setShowGame(false)
                 console.log("the Pokemon escaped!")
             } else {
                 setTriedToRun(true)
-              console.log("The Pokemon could not escape!")  
+                console.log("The Pokemon could not escape!")
             }
-            
+
         }
     }
 
@@ -113,7 +113,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
 
     function handleNewPokemon(newPokemon) {
         const newArrayOfUpdatedPokemon = allPokemon.filter((individualPokemon) => {
-            if(individualPokemon.id === newPokemon.id) {
+            if (individualPokemon.id === newPokemon.id) {
                 return newPokemon
             } else {
                 return individualPokemon
@@ -122,12 +122,12 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
         setAllPokemon(newArrayOfUpdatedPokemon)
     }
 
-    function handleRun(){
-        // const chanceToRunAway = getRandomInteger(0,5)
-        // if(chanceToRunAway >= 4) {
-
-        // }
-        setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
+    function handleRun() {
+        const chanceToRunAway = getRandomInteger(0, 8)
+        console.log("could you run?", chanceToRunAway >= 7)
+        if (chanceToRunAway >= 4) {
+            setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
+        }
     }
 
     // in the JSX bellow the default values for the conditionals are as follows
@@ -136,20 +136,23 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
     // pokemonRan = false
     // triedToRun =  false
     // depending on the results of handleCatch these boolean values will change but the useEffect functions above will reset to these default boolean values
-    
+
     return (
         <div>
             {showGame ? (
-               <div>
-            <h2>{`Woah a wild ${randomPokemon.name} appeared!`}</h2>
-            <p>{randomPokemon.name}</p>
-            <p>hp: {randomPokemon.hp}</p>
-            <img src={randomPokemon.sprites.front} alt={""} />
-            <br />
-            <button onClick={handleCatch}>Catch It!</button>
-            <br />
-            <button onClick={handleRun}>Run Away!</button>
-            </div> 
+                <div>
+                    <h2>{`Woah a wild ${randomPokemon.name} appeared!`}</h2>
+                    <p>{randomPokemon.name}</p>
+                    <p>hp: {randomPokemon.hp}</p>
+                    <img src={randomPokemon.sprites.front} alt={""} />
+                    <br />
+                    <button onClick={handleCatch}>Catch It!</button>
+                    <br />
+                    <button onClick={handleRun}>Run Away!</button>
+                    {/* <div>
+                        {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't run!</p>}
+                    </div> */}
+                </div>
             ) : null}
             <div>
                 {pokemonCaught ? (
