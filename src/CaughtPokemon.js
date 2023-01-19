@@ -10,8 +10,8 @@ function CaughtPokemon({ caughtPokemon }) {
     return (
         <div>
             <h1>Caught Pokemon</h1>
-            <p>{`Total caught Pokemon ${caughtPokemon.length}.`}</p>
-            <p>{pokemonCards}</p>
+            <div>{`Total caught Pokemon ${caughtPokemon.length}.`}</div>
+            <div>{pokemonCards}</div>
         </div>
     )
 }
