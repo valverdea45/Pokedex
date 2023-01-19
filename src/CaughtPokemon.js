@@ -3,9 +3,7 @@ import Pokemon from "./Pokemon"
 
 function CaughtPokemon({ caughtPokemon }) {
 
-    // make name descriptive and dont reuse names
-
-    const individualPokemon = caughtPokemon.map((individualPokemon) => {
+    const pokemonCards = caughtPokemon.map((individualPokemon) => {
         return <Pokemon key={individualPokemon.name} singlePokemon={individualPokemon}/>
     })
 
@@ -13,7 +11,7 @@ function CaughtPokemon({ caughtPokemon }) {
         <div>
             <h1>Caught Pokemon</h1>
             <p>{`Total caught Pokemon ${caughtPokemon.length}.`}</p>
-            <p>{individualPokemon}</p>
+            <p>{pokemonCards}</p>
         </div>
     )
 }

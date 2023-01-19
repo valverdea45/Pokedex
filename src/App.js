@@ -24,6 +24,10 @@ function App() {
   console.log("this is uncaught", uncaughtPokemon)
   console.log("this is caught pokemon", caughtPokemon)
 
+  function onAddPokemon(newPokemon) {
+    setAllPokemon([...allPokemon, newPokemon])
+  }
+
   return (
     <div>
     <Navbar />
@@ -38,7 +42,7 @@ function App() {
           <WildPokemon allPokemon={allPokemon} uncaughtPokemon={uncaughtPokemon} caughtPokemon={caughtPokemon} setAllPokemon={setAllPokemon}/>
         </Route>
         <Route exact path="/AddPokemon">
-          <AddPokemon uncaughtPokemon={uncaughtPokemon}/>
+          <AddPokemon uncaughtPokemon={uncaughtPokemon} onAddPokemon={onAddPokemon} />
         </Route>
         <Route exact path="/">
           <Home />

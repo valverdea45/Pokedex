@@ -3,9 +3,7 @@ import Pokemon from "./Pokemon";
 
 function UncaughtPokemon({ uncaughtPokemon }) {
 
-    // make name descriptive
-
-    const individualPokemon = uncaughtPokemon.map((singlePokemon) => {
+    const pokemonCards = uncaughtPokemon.map((singlePokemon) => {
         return <Pokemon key={singlePokemon.name} singlePokemon={singlePokemon} />
     })
 
@@ -13,7 +11,7 @@ function UncaughtPokemon({ uncaughtPokemon }) {
         <div>
             <h1>Uncaught Pokemon</h1>
             <p>{`total uncaught pokemon ${uncaughtPokemon.length}.`}</p>
-            {individualPokemon}
+            {pokemonCards}
         </div>
     )
 }

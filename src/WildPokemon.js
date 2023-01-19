@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function WildPokemon({ allPokemon, uncaughtPokemon, caughtPokemon, setAllPokemon}) {
+function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
 
     function getRandomInteger(min, max) {
         return Math.round(Math.random() * (max - min) + min)
@@ -14,6 +14,9 @@ function WildPokemon({ allPokemon, uncaughtPokemon, caughtPokemon, setAllPokemon
     // created a state to display the game
     const [showGame, setShowGame] = useState(true)
 
+    let randomPokemon = uncaughtPokemon[pokemonIndex]
+
+    // these useEffects are to reset states back to default
     useEffect(() => {
       setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))  
     }, [uncaughtPokemon])
@@ -54,7 +57,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, caughtPokemon, setAllPokemon
         }
     }, [triedToRun])
 
-    let randomPokemon = uncaughtPokemon[pokemonIndex]
+    
 
 
     function handleCatch() {
@@ -109,7 +112,6 @@ function WildPokemon({ allPokemon, uncaughtPokemon, caughtPokemon, setAllPokemon
             }
         })
         setAllPokemon(newArrayOfUpdatedPokemon)
-        console.log(newPokemon)
     }
 
     return (
