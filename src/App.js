@@ -12,7 +12,7 @@ function App() {
   const [allPokemon, setAllPokemon] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:4000/pokemon")
+    fetch("http://localhost:3000/pokemon")
       .then((data) => data.json())
       .then((pokemons) => setAllPokemon(pokemons))
   }, [])

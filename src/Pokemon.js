@@ -1,10 +1,6 @@
 import React from "react"
 
 function Pokemon({ singlePokemon }) {
-    
-    function handleClick(){
-        console.log("I was clicked!", singlePokemon)
-    }
 
     return (
     <div style={{
@@ -16,7 +12,7 @@ function Pokemon({ singlePokemon }) {
     }}>
       <div>
         <div className="image">
-          <img onClick={handleClick} alt={singlePokemon.name} src={singlePokemon.sprites.front} />
+          <img alt={singlePokemon.name} src={singlePokemon.sprites.front} />
         </div>
         <div className="content">
           <div className="header">{singlePokemon.name}</div>

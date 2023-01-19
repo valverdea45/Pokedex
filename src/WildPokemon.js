@@ -120,7 +120,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
                <div>
             <h2>{`Woah a wild ${randomPokemon.name} appeared!`}</h2>
             <p>{randomPokemon.name}</p>
-            <p>{randomPokemon.hp}</p>
+            <p>hp: {randomPokemon.hp}</p>
             <img src={randomPokemon.sprites.front} alt={""} />
             <br />
             <button onClick={handleCatch}>Catch It!</button>
@@ -138,7 +138,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
             </div>
             <div>
                 {triedToRun ? (
-                    <h1>Pokemon tried to run! but couldn't escape!</h1>
+                    <h3>Pokemon tried to run! but couldn't escape!</h3>
                 ) : null}
             </div>
         </div>
