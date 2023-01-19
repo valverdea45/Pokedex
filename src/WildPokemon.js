@@ -15,7 +15,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
     const [triedToRun, setTriedToRun] = useState(false)
     // created a state to display the game
     const [showGame, setShowGame] = useState(true)
-
+    const [couldYouRun, setCouldYouRun] = useState(false)
     //current random pokemon
     let randomPokemon = uncaughtPokemon[pokemonIndex]
 
