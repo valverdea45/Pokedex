@@ -122,6 +122,14 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
         setAllPokemon(newArrayOfUpdatedPokemon)
     }
 
+    function handleRun(){
+        // const chanceToRunAway = getRandomInteger(0,5)
+        // if(chanceToRunAway >= 4) {
+
+        // }
+        setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
+    }
+
     // in the JSX bellow the default values for the conditionals are as follows
     // showGame = true
     // pokemoncaught = false
@@ -139,6 +147,8 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
             <img src={randomPokemon.sprites.front} alt={""} />
             <br />
             <button onClick={handleCatch}>Catch It!</button>
+            <br />
+            <button onClick={handleRun}>Run Away!</button>
             </div> 
             ) : null}
             <div>
