@@ -39,6 +39,10 @@ function AddPokemon({ onAddPokemon }) {
         })
         .then((data)=> data.json())
         .then((newPokemon) => onAddPokemon(newPokemon))
+
+        setPokemonHp(0)
+        setPokemonImage("")
+        setPokemonName("")
     }
     
     return (
