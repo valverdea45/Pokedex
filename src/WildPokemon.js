@@ -64,9 +64,9 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon}) {
     // handleCatch function gets three random intergers
     // pokeball the integer for how likly to catch pokemon
     // chanceToCatch which is an integer for how likly to catch pokemon
-    // chance of escape
+    // chance of escape is  an integer for the likelyhood of the pokemon escaping if pokemon cant escape user has another shot of catching it
+    // otherwise pokemon will disappear and another one will load
     // if pokeball is greater than or equal to than chanceToCatch then the pokemon is caught
-    // if not then
 
     function handleCatch() {
         const chanceToCatch = getRandomInteger(0, 100)
