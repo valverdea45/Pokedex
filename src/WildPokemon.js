@@ -13,6 +13,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
     const [pokemonCaught, setPokemonCaught] = useState(false)
     const [pokemonRan, setPokemonRan] = useState(false)
     const [triedToRun, setTriedToRun] = useState(false)
+    const [wasClicked, setWasClicked] = useState(false)
     // created a state to display the game
     const [showGame, setShowGame] = useState(true)
     const [couldYouRun, setCouldYouRun] = useState(false)
@@ -59,6 +60,16 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
             clearTimeout(timeoutId)
         }
     }, [triedToRun])
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setWasClicked(false)
+            setCouldYouRun(false)
+        }, 1000);
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    },[wasClicked])
 
 
     // handleCatch function gets three random intergers
@@ -127,6 +138,8 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
         console.log("could you run?", chanceToRunAway >= 7)
         if (chanceToRunAway >= 4) {
             setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
+            setCouldYouRun(true)
+            setWasClicked(true)
         }
     }
 
@@ -149,9 +162,14 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
                     <button onClick={handleCatch}>Catch It!</button>
                     <br />
                     <button onClick={handleRun}>Run Away!</button>
-                    {/* <div>
-                        {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't run!</p>}
-                    </div> */}
+                    <div>
+                        { wasClicked ?
+                            <div>
+                                {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't run!</p>}
+                            </div>
+                            : null
+                        }
+                    </div>
                 </div>
             ) : null}
             <div>
