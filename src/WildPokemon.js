@@ -135,11 +135,11 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
 
     function handleRun() {
         const chanceToRunAway = getRandomInteger(0, 8)
+        setWasClicked(true)
         console.log("could you run?", chanceToRunAway >= 7)
         if (chanceToRunAway >= 4) {
             setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
             setCouldYouRun(true)
-            setWasClicked(true)
         }
     }
 
