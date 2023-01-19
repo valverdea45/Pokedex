@@ -132,7 +132,8 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
         })
         setAllPokemon(newArrayOfUpdatedPokemon)
     }
-
+    // when clicking the run away button gives the user to run
+    // gets random integer from 0-8 and if its greater than or equal to 7 they load the next pokemon
     function handleRun() {
         const chanceToRunAway = getRandomInteger(0, 8)
         setWasClicked(true)
