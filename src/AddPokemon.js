@@ -10,13 +10,6 @@ function AddPokemon({ onAddPokemon }) {
     console.log(pokemonHp)
     console.log(pokemonImage)
 
-    // onadd pokemon needs to be in the parent component
-    // shouldnt be the responsability of the form
-
-    // function onAddPokemon(newPokemon) {
-    //     setUncaughtPokemon([...uncaughtPokemon, newPokemon])
-    // }
-
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -30,7 +23,7 @@ function AddPokemon({ onAddPokemon }) {
         }
         console.log(objToBeSent)
 
-        fetch("http://localhost:4000/pokemon", {
+        fetch("http://localhost:3000/pokemon", {
             method: "POST",
             headers:{
                 "Content-Type": "application/json"

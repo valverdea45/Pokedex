@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
+function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
+
+    // add conditional for loading useeffect runs after the initial render.
 
     // function for creating random integers
     function getRandomInteger(min, max) {
@@ -19,6 +21,8 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
     const [couldYouRun, setCouldYouRun] = useState(false)
     //current random pokemon
     let randomPokemon = uncaughtPokemon[pokemonIndex]
+
+    console.log("random pokemon", randomPokemon)
 
     // these useEffects are to reset states back to default
     useEffect(() => {
@@ -109,7 +113,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
         setPokemonCaught(true)
         setShowGame(false)
 
-        fetch(`http://localhost:4000/pokemon/${randomPokemon.id}`, {
+        fetch(`http://localhost:3000/pokemon/${randomPokemon.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -119,19 +123,26 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
             })
         })
             .then((data) => data.json())
-            .then((newPokemon) => handleNewPokemon(newPokemon))
+            .then((newPokemon) => handleUpdatePokemon(newPokemon))
     }
 
-    function handleNewPokemon(newPokemon) {
-        const newArrayOfUpdatedPokemon = allPokemon.filter((individualPokemon) => {
-            if (individualPokemon.id === newPokemon.id) {
-                return newPokemon
-            } else {
-                return individualPokemon
-            }
-        })
-        setAllPokemon(newArrayOfUpdatedPokemon)
-    }
+    // this should be called handleUpdatePokemon and should be in the parent component
+    // this function needs to replace old pokemon uncaught with new caught
+
+    // function handleNewPokemon(newPokemon) {
+    //     const newArrayOfUpdatedPokemon = allPokemon.filter((individualPokemon) => {
+    //         if (individualPokemon.id === newPokemon.id) {
+    //             return "cat"
+    //         } else {
+    //             return "cat"
+    //         }
+    //     })
+
+    //     console.log("cat?", newArrayOfUpdatedPokemon)
+
+    //     handleUpdatePokemon(newArrayOfUpdatedPokemon)
+    // }
+
     // when clicking the run away button gives the user to run
     // gets random integer from 0-8 and if its greater than or equal to 7 they load the next pokemon
     function handleRun() {
@@ -166,7 +177,7 @@ function WildPokemon({ allPokemon, uncaughtPokemon, setAllPokemon }) {
                     <div>
                         { wasClicked ?
                             <div>
-                                {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't run!</p>}
+                                {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't escape!</p>}
                             </div>
                             : null
                         }

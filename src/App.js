@@ -21,8 +21,22 @@ function App() {
 
   const uncaughtPokemon = allPokemon.filter(singlePokemon => singlePokemon.caught === false)
 
+  console.log("this is caught", caughtPokemon)
+  console.log("this is uncaught", uncaughtPokemon)
+
   function onAddPokemon(newPokemon) {
     setAllPokemon([...allPokemon, newPokemon])
+  }
+
+  function handleUpdatePokemon(newPokemon) {
+    const newArrayOfPokemon = allPokemon.map((singlePokemon) => {
+      if (newPokemon.id === singlePokemon.id) {
+        return newPokemon
+      } else {
+        return singlePokemon
+      }
+    })
+    setAllPokemon(newArrayOfPokemon)
   }
 
   return (
@@ -36,7 +50,7 @@ function App() {
           <UncaughtPokemon uncaughtPokemon={uncaughtPokemon} />
         </Route>
         <Route exact path="/WildPokemon">
-          <WildPokemon allPokemon={allPokemon} uncaughtPokemon={uncaughtPokemon} caughtPokemon={caughtPokemon} setAllPokemon={setAllPokemon}/>
+          <WildPokemon allPokemon={allPokemon} uncaughtPokemon={uncaughtPokemon} caughtPokemon={caughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>
         </Route>
         <Route exact path="/AddPokemon">
           <AddPokemon uncaughtPokemon={uncaughtPokemon} onAddPokemon={onAddPokemon} />
