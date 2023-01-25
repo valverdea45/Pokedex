@@ -42,8 +42,7 @@ function AddPokemon({ onAddPokemon }) {
         setPokemonHp(0)
         setPokemonImage("")
         setPokemonName("")
-    }
-    }
+    }}
     
     return (
         <div>
