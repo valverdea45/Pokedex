@@ -5,6 +5,7 @@ function Home() {
         <div>
             <h1>Welcome to your Pokedex!</h1>
             <p>Try finding and catching wild pokemon!</p>
+            <p>You can also check what you have caught as well!</p>
         </div>
     )
 }
