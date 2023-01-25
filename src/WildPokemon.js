@@ -123,23 +123,6 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
             .then((newPokemon) => handleUpdatePokemon(newPokemon))
     }
 
-    // this should be called handleUpdatePokemon and should be in the parent component
-    // this function needs to replace old pokemon uncaught with new caught
-
-    // function handleNewPokemon(newPokemon) {
-    //     const newArrayOfUpdatedPokemon = allPokemon.filter((individualPokemon) => {
-    //         if (individualPokemon.id === newPokemon.id) {
-    //             return "cat"
-    //         } else {
-    //             return "cat"
-    //         }
-    //     })
-
-    //     console.log("cat?", newArrayOfUpdatedPokemon)
-
-    //     handleUpdatePokemon(newArrayOfUpdatedPokemon)
-    // }
-
     // when clicking the run away button gives the user to run
     // gets random integer from 0-8 and if its greater than or equal to 7 they load the next pokemon
     function handleRun() {

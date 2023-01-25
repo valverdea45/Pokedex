@@ -6,11 +6,7 @@ function AddPokemon({ onAddPokemon }) {
     const [pokemonHp, setPokemonHp] = useState(0)
     const [pokemonImage, setPokemonImage] = useState("")
     const [isInvalidInput, setIsInvalidInput] = useState(false)
-
-    // console.log(pokemonName)
-    // console.log(pokemonHp)
-    // console.log(pokemonImage)
-
+    
     function handleSubmit(e) {
         e.preventDefault()
         if(pokemonName === "" && pokemonImage === "" && pokemonHp === 0) {

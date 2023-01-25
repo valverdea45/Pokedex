@@ -21,8 +21,6 @@ function App() {
 
   const uncaughtPokemon = allPokemon.filter(singlePokemon => singlePokemon.caught === false)
 
-  // console.log("this is caught", caughtPokemon)
-  // console.log("this is uncaught", uncaughtPokemon)
 
   function onAddPokemon(newPokemon) {
     setAllPokemon([...allPokemon, newPokemon])
