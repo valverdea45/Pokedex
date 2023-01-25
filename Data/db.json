@@ -223,7 +223,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 27,
@@ -1403,6 +1403,42 @@
       },
       "caught": false,
       "id": 157
+    },
+    {
+      "name": "",
+      "hp": 0,
+      "sprites": {
+        "front": ""
+      },
+      "caught": false,
+      "id": 158
+    },
+    {
+      "name": "",
+      "hp": 0,
+      "sprites": {
+        "front": ""
+      },
+      "caught": false,
+      "id": 159
+    },
+    {
+      "name": "Lugia",
+      "hp": "200",
+      "sprites": {
+        "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/249.png"
+      },
+      "caught": false,
+      "id": 160
+    },
+    {
+      "name": "Luxray",
+      "hp": "120",
+      "sprites": {
+        "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/405.png"
+      },
+      "caught": false,
+      "id": 161
     }
   ]
 }

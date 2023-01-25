@@ -5,6 +5,7 @@ function AddPokemon({ onAddPokemon }) {
     const [pokemonName, setPokemonName] = useState("")
     const [pokemonHp, setPokemonHp] = useState(0)
     const [pokemonImage, setPokemonImage] = useState("")
+    const [isInvalidInput, setIsInvalidInput] = useState(false)
 
     // console.log(pokemonName)
     // console.log(pokemonHp)
@@ -12,6 +13,12 @@ function AddPokemon({ onAddPokemon }) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        if(pokemonName === "" && pokemonImage === "" && pokemonHp === 0) {
+            setIsInvalidInput(true)
+            return null
+        } else {
+
+        setIsInvalidInput(false)
 
         const objToBeSent = {
             name: pokemonName,
@@ -37,6 +44,7 @@ function AddPokemon({ onAddPokemon }) {
         setPokemonImage("")
         setPokemonName("")
     }
+    }
     
     return (
         <div>
@@ -47,6 +55,9 @@ function AddPokemon({ onAddPokemon }) {
                 <input onChange={(e) => setPokemonImage(e.target.value)} value={pokemonImage} type="text" placeholder="sprite URL"/>
                 <button type="submit">Add Pokemon</button>
             </form>
+            {isInvalidInput ? (
+                <p>Oops - don't forget to fill out all fields above</p>
+            ) : null}
             <p>note: when adding a pokemon it gives it a chance to be found in the wild</p>
         </div>
     )

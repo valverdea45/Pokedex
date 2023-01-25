@@ -25,8 +25,6 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     let randomPokemon = uncaughtPokemon[pokemonIndex]
 
 
-    console.log("random pokemon", randomPokemon)
-
     // these useEffects are to reset states back to default
     useEffect(() => {
         setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
@@ -90,22 +88,18 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
         const chanceToCatch = getRandomInteger(0, 100)
         const pokeball = getRandomInteger(0, 100)
 
-        console.log("was it caught?", pokeball >= chanceToCatch)
 
 
         if (pokeball >= chanceToCatch) {
             return onCatch(randomPokemon)
         } else {
             const chanceOfEscape = getRandomInteger(0, 5)
-            console.log("chance to run away", chanceOfEscape)
             if (chanceOfEscape >= 1) {
                 setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
                 setPokemonRan(true)
                 setShowGame(false)
-                console.log("the Pokemon escaped!")
             } else {
                 setTriedToRun(true)
-                console.log("The Pokemon could not escape!")
             }
 
         }
@@ -151,7 +145,6 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     function handleRun() {
         const chanceToRunAway = getRandomInteger(0, 8)
         setWasClicked(true)
-        console.log("could you run?", chanceToRunAway >= 4)
         if (chanceToRunAway >= 4) {
             setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
             setCouldYouRun(true)
