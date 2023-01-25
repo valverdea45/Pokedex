@@ -48,7 +48,7 @@ function App() {
           <UncaughtPokemon uncaughtPokemon={uncaughtPokemon} />
         </Route>
         <Route exact path="/WildPokemon">
-          <WildPokemon allPokemon={allPokemon} uncaughtPokemon={uncaughtPokemon} caughtPokemon={caughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>
+          <WildPokemon uncaughtPokemon={uncaughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>
         </Route>
         <Route exact path="/AddPokemon">
           <AddPokemon onAddPokemon={onAddPokemon} />
