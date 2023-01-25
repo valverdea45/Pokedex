@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
 
+   
+
     // add conditional for loading useeffect runs after the initial render.
 
     // function for creating random integers
@@ -21,6 +23,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     const [couldYouRun, setCouldYouRun] = useState(false)
     //current random pokemon
     let randomPokemon = uncaughtPokemon[pokemonIndex]
+
 
     console.log("random pokemon", randomPokemon)
 
@@ -148,7 +151,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     function handleRun() {
         const chanceToRunAway = getRandomInteger(0, 8)
         setWasClicked(true)
-        console.log("could you run?", chanceToRunAway >= 7)
+        console.log("could you run?", chanceToRunAway >= 4)
         if (chanceToRunAway >= 4) {
             setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
             setCouldYouRun(true)
@@ -161,9 +164,16 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     // pokemonRan = false
     // triedToRun =  false
     // depending on the results of handleCatch these boolean values will change but the useEffect functions above will reset to these default boolean values
+    
+    if(!randomPokemon) {
+        return(
+            <p>loading....</p>
+        )
+    }
 
     return (
         <div>
+            <div>
             {showGame ? (
                 <div>
                     <h2>{`Woah a wild ${randomPokemon.name} appeared!`}</h2>
@@ -198,6 +208,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
                 {triedToRun ? (
                     <h3>Pokemon tried to run! but couldn't escape!</h3>
                 ) : null}
+            </div>
             </div>
         </div>
     )

@@ -6,9 +6,9 @@ function AddPokemon({ onAddPokemon }) {
     const [pokemonHp, setPokemonHp] = useState(0)
     const [pokemonImage, setPokemonImage] = useState("")
 
-    console.log(pokemonName)
-    console.log(pokemonHp)
-    console.log(pokemonImage)
+    // console.log(pokemonName)
+    // console.log(pokemonHp)
+    // console.log(pokemonImage)
 
     function handleSubmit(e) {
         e.preventDefault()

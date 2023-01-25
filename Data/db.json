@@ -1222,7 +1222,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/137.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 138,
@@ -1394,6 +1394,15 @@
       },
       "caught": false,
       "id": 156
+    },
+    {
+      "name": "Torterra",
+      "hp": "300",
+      "sprites": {
+        "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/389.png"
+      },
+      "caught": false,
+      "id": 157
     }
   ]
 }
