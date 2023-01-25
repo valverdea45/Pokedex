@@ -28,7 +28,6 @@ function AddPokemon({ onAddPokemon }) {
             },
             caught: false
         }
-        console.log(objToBeSent)
 
         fetch("http://localhost:3000/pokemon", {
             method: "POST",
