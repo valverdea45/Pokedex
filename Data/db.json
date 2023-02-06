@@ -7,7 +7,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 3,
@@ -16,7 +16,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 4,
@@ -124,7 +124,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 16,
@@ -151,7 +151,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 19,
@@ -187,7 +187,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 23,
@@ -196,7 +196,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 24,
@@ -322,7 +322,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 38,
@@ -439,7 +439,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 51,
@@ -1132,7 +1132,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/127.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 128,
@@ -1258,7 +1258,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/141.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 142,
@@ -1374,7 +1374,7 @@
       "sprites": {
         "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/250.png"
       },
-      "caught": false,
+      "caught": true,
       "id": 154
     },
     {
@@ -1401,7 +1401,7 @@
       "sprites": {
         "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/389.png"
       },
-      "caught": false,
+      "caught": true,
       "id": 157
     },
     {
@@ -1421,6 +1421,24 @@
       },
       "caught": false,
       "id": 161
+    },
+    {
+      "name": "Loppuny",
+      "hp": "150",
+      "sprites": {
+        "front": "https://img.pokemondb.net/artwork/large/lopunny.jpg"
+      },
+      "caught": false,
+      "id": 162
+    },
+    {
+      "name": "Xerneas",
+      "hp": "151",
+      "sprites": {
+        "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/716.png"
+      },
+      "caught": false,
+      "id": 163
     }
   ]
 }
