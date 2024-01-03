@@ -16,7 +16,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 4,
@@ -25,7 +25,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 5,
@@ -34,7 +34,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 6,
@@ -61,7 +61,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 9,
@@ -79,7 +79,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 11,
@@ -133,7 +133,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 17,
@@ -187,7 +187,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 23,
@@ -268,7 +268,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 32,
@@ -322,7 +322,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 38,
@@ -970,7 +970,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/109.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 110,
@@ -1087,7 +1087,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/122.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 123,
@@ -1339,7 +1339,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "name": "bulbasaur",
@@ -1410,7 +1410,7 @@
       "sprites": {
         "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/249.png"
       },
-      "caught": false,
+      "caught": true,
       "id": 160
     },
     {

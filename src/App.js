@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { Route, Switch } from "react-router-dom";
 import CaughtPokemon from "./CaughtPokemon"
 import Navbar from "./Navbar";
@@ -6,6 +6,9 @@ import UncaughtPokemon from "./UncaughtPokemon"
 import WildPokemon from "./WildPokemon";
 import Home from "./Home";
 import AddPokemon from "./AddPokemon"
+import "./box.css"
+
+export const UpdateFunctionContext = createContext(false)
 
 function App() {
 
@@ -37,9 +40,22 @@ function App() {
     setAllPokemon(newArrayOfPokemon)
   }
 
+  function handleUpdateddPokemon(singlePokemon) {
+    const newArrayOfPokemon = allPokemon.map((pokemon) => {
+      if(pokemon.id === singlePokemon.id) {
+        return singlePokemon
+      } else {
+        return pokemon
+      }
+    })
+    setAllPokemon(newArrayOfPokemon)
+  }
+
   return (
+    <UpdateFunctionContext.Provider value={handleUpdateddPokemon}>
     <div>
     <Navbar />
+    <div className="box"/>
       <Switch>
         <Route exact path="/CaughtPokemon">
           <CaughtPokemon caughtPokemon={caughtPokemon} />
@@ -58,6 +74,7 @@ function App() {
         </Route>
       </Switch>
     </div>
+  </UpdateFunctionContext.Provider>
   );
 }
 
