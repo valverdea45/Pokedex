@@ -44,9 +44,15 @@ function AddPokemon({ onAddPokemon }) {
         <div>
             <h1>Add a Pokemon!</h1>
             <form onSubmit={handleSubmit} >
-                <input onChange={(e) => setPokemonName(e.target.value)} value={pokemonName} type="text" placeholder="Pokemon name"/>
-                <input onChange={(e) => setPokemonHp(e.target.value)} value={pokemonHp} type="number" placeholder="hp"/>
-                <input onChange={(e) => setPokemonImage(e.target.value)} value={pokemonImage} type="text" placeholder="sprite URL"/>
+                <label>Name: </label>
+                <input onChange={(e) => setPokemonName(e.target.value)} value={pokemonName} type="text" placeholder="Name"/>
+                <br/>
+                <label>HP: </label>
+                <input onChange={(e) => setPokemonHp(e.target.value)} value={pokemonHp} type="number" placeholder="HP"/>
+                <br/>
+                <label>Image: </label>
+                <input onChange={(e) => setPokemonImage(e.target.value)} value={pokemonImage} type="text" placeholder="Sprite URL"/>
+                <br/>
                 <button type="submit">Add Pokemon</button>
             </form>
             {isInvalidInput ? (
