@@ -79,7 +79,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 11,
@@ -430,7 +430,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/49.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 50,
@@ -475,7 +475,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 55,
@@ -880,7 +880,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/99.png"
       },
-      "caught": false
+      "caught": true
     },
     {
       "id": 100,
@@ -1419,7 +1419,7 @@
       "sprites": {
         "front": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/405.png"
       },
-      "caught": false,
+      "caught": true,
       "id": 161
     },
     {

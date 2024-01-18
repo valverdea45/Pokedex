@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Bag from "./Bag";
+import WildEnounter from "./WildEncounter";
 import css from "./WildPokemon.module.css"
 
 function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
 
-   
+   const navigate = useNavigate()
 
     // add conditional for loading useeffect runs after the initial render.
 
@@ -20,7 +23,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     const [triedToRun, setTriedToRun] = useState(false)
     const [wasClicked, setWasClicked] = useState(false)
     // created a state to display the game
-    const [showGame, setShowGame] = useState(true)
+    const [showHome, setShowHome] = useState(true)
     const [couldYouRun, setCouldYouRun] = useState(false)
     //current random pokemon
     let randomPokemon = uncaughtPokemon[pokemonIndex]
@@ -51,12 +54,12 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            setShowGame(true)
+            setShowHome(true)
         }, 1700)
         return () => {
             clearTimeout(timeoutId)
         }
-    }, [showGame])
+    }, [showHome])
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -98,7 +101,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
             if (chanceOfEscape >= 1) {
                 setPokemonIndex(getRandomInteger(0, uncaughtPokemon.length - 1))
                 setPokemonRan(true)
-                setShowGame(false)
+                setShowHome(false)
             } else {
                 setTriedToRun(true)
             }
@@ -109,7 +112,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     function onCatch(randomPokemon) {
         randomPokemon.caught = true
         setPokemonCaught(true)
-        setShowGame(false)
+        setShowHome(false)
 
         fetch(`http://localhost:3000/pokemon/${randomPokemon.id}`, {
             method: "PATCH",
@@ -136,7 +139,7 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     }
 
     // in the JSX bellow the default values for the conditionals are as follows
-    // showGame = true
+    // showHome = true
     // pokemoncaught = false
     // pokemonRan = false
     // triedToRun =  false
@@ -151,25 +154,31 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     return (
         <div>
             <div>
-            {showGame ? (
+            {showHome ? (
+                // <div>
+                //     <h2>{`Woah a wild ${randomPokemon.name} appeared!`}</h2>
+                //     <p>{randomPokemon.name}</p>
+                //     <p>hp: {randomPokemon.hp}</p>
+                //     <img src={randomPokemon.sprites.front} alt={""} />
+                //     <br />
+                //     <button className={css.catchit} onClick={handleCatch}>Catch It!</button>
+                //     <br />
+                //     <button className={css.runaway}onClick={handleRun}>Run Away!</button>
+                //     <div>
+                //         { wasClicked ?
+                //             <div>
+                //                 {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't escape!</p>}
+                //             </div>
+                //             : null
+                //         }
+                //     </div>
+                // </div>
                 <div>
-                    <h2>{`Woah a wild ${randomPokemon.name} appeared!`}</h2>
-                    <p>{randomPokemon.name}</p>
-                    <p>hp: {randomPokemon.hp}</p>
-                    <img src={randomPokemon.sprites.front} alt={""} />
-                    <br />
-                    <button className={css.catchit} onClick={handleCatch}>Catch It!</button>
-                    <br />
-                    <button className={css.runaway}onClick={handleRun}>Run Away!</button>
-                    <div>
-                        { wasClicked ?
-                            <div>
-                                {couldYouRun ? <p>You Ran Away!</p> : <p>You couldn't escape!</p>}
-                            </div>
-                            : null
-                        }
-                    </div>
+                    <button onClick={() => {navigate("/WildEncounter")}}> Find Wild Pokemon </button>
+                    <br/>
+                    <button onClick={() => {navigate("/Bag")}}> Bag </button>
                 </div>
+                
             ) : null}
             <div>
                 {pokemonCaught ? (

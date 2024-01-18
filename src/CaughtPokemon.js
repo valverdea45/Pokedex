@@ -5,6 +5,7 @@ function CaughtPokemon({ caughtPokemon }) {
 
     const [ search, setSearch ] = useState("")
 
+
     const filteredPokemon = caughtPokemon.filter((pokemon) => {
         return pokemon.name.toLowerCase().includes(search.toLowerCase())
     })

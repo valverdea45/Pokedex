@@ -1,11 +1,13 @@
 import React, { useEffect, useState, createContext } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import CaughtPokemon from "./CaughtPokemon"
 import Navbar from "./Navbar";
 import UncaughtPokemon from "./UncaughtPokemon"
 import WildPokemon from "./WildPokemon";
 import Home from "./Home";
 import AddPokemon from "./AddPokemon"
+import Bag from "./Bag"
+import WildEnounter from "./WildEncounter";
 
 export const UpdateFunctionContext = createContext(false)
 
@@ -55,23 +57,15 @@ function App() {
     <div>
     <Navbar />
     <div className="box"/>
-      <Switch>
-        <Route exact path="/CaughtPokemon">
-          <CaughtPokemon caughtPokemon={caughtPokemon} />
-        </Route>
-        <Route exact path="/UncaughtPokemon">
-          <UncaughtPokemon uncaughtPokemon={uncaughtPokemon} />
-        </Route>
-        <Route exact path="/WildPokemon">
-          <WildPokemon uncaughtPokemon={uncaughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>
-        </Route>
-        <Route exact path="/AddPokemon">
-          <AddPokemon onAddPokemon={onAddPokemon} />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={caughtPokemon}/>}/>
+        <Route path="/UncaughtPokemon" element={<UncaughtPokemon uncaughtPokemon={uncaughtPokemon}/>}/>
+        <Route path="/WildPokemon" element={<WildPokemon uncaughtPokemon={uncaughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>}/>
+        <Route path="/AddPokemon" element={<AddPokemon onAddPokemon={onAddPokemon}/>}/>
+        <Route path="/Bag" element={<Bag/>}/>
+        <Route path="/WildEncounter" element={<WildEnounter/>}/>
+        <Route path="/" element={<Home/>}/>
+      </Routes>
     </div>
   </UpdateFunctionContext.Provider>
   );
