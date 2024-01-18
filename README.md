@@ -1,12 +1,12 @@
 # Pokedex
 Pokedex is a web app that users can do the following:
 
-1. find wild pokemon
-2. catch pokemon
-3. see a record of caught/uncaught pokemon.
-4. add more pokemon to find in the wild.
+1. Find wild pokemon
+2. Catch pokemon
+3. See a record of caught/uncaught pokemon.
+4. Add more pokemon to find in the wild.
 
-## Installation
+## Installation and Start Up
 
 Pokedex runs on a json-server follow these steps to get it running
 
@@ -16,13 +16,16 @@ Pokedex runs on a json-server follow these steps to get it running
 npm install -g json-server
 ```
 
-2. start json server
+2. Start json-server
+
+In a new terminal run the following command
 
 ```bash
 json-server --watch Data/db.json
 ```
+3. Start app
 
-with these steps completed the server is be up and running run the following command to get the app running
+In another new terminal run the following command to start the app
 
 ```bash
 npm start
@@ -30,7 +33,7 @@ npm start
 
 ## Usage
 
-upon loading the web app users will see a Navigation bar with the following features available to them
+Upon loading the web app users will see a Navigation bar with the following features available to them
 
 1. Caught Pokemon
 

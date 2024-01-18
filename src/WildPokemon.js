@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import css from "./WildPokemon.module.css"
 
 function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
 
@@ -157,9 +158,9 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
                     <p>hp: {randomPokemon.hp}</p>
                     <img src={randomPokemon.sprites.front} alt={""} />
                     <br />
-                    <button onClick={handleCatch}>Catch It!</button>
+                    <button className={css.catchit} onClick={handleCatch}>Catch It!</button>
                     <br />
-                    <button onClick={handleRun}>Run Away!</button>
+                    <button className={css.runaway}onClick={handleRun}>Run Away!</button>
                     <div>
                         { wasClicked ?
                             <div>

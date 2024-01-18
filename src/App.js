@@ -6,7 +6,6 @@ import UncaughtPokemon from "./UncaughtPokemon"
 import WildPokemon from "./WildPokemon";
 import Home from "./Home";
 import AddPokemon from "./AddPokemon"
-import "./box.css"
 
 export const UpdateFunctionContext = createContext(false)
 
