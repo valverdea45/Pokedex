@@ -174,9 +174,10 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
                 //     </div>
                 // </div>
                 <div>
-                    <button onClick={() => {navigate("/WildEncounter")}}> Find Wild Pokemon </button>
-                    <br/>
                     <button onClick={() => {navigate("/Bag")}}> Bag </button>
+                    <br/>
+                    <img  onClick={() => {navigate("/WildEncounter")}} src="https://static.vecteezy.com/system/resources/thumbnails/022/351/056/small_2x/grass-clipart-grass-transparent-background-free-png.png"/>
+                    <p>Find Wild Pokemon</p>
                 </div>
                 
             ) : null}
