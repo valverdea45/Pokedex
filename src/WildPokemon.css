@@ -5,7 +5,23 @@
     align-items: center;
 }
 
-.bag-container {
+.minor-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+.text {
+    align-self: center
+}
+
+.image {
+    height: 30vh
+}
+
+.glow-text {
+    color: blue;
+}
+
+.hover {
+    cursor: pointer;
 }
