@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
-import './css/NavBar.css'
+import { NavLink } from "react-router-dom";
+import './css/NavBar.css';
 
 
 // const linkStyles = {
@@ -18,20 +18,20 @@ const hoverStyle = {
 
 function Navbar() {
     return (
-        <div>
-            <NavLink to="/CaughtPokemon" exact style={linkStyles} activeStyle={hoverStyle}>
+        <div className="flex">
+            <NavLink to="/CaughtPokemon" exact className="linkStyles" activeStyle={hoverStyle}>
                 Caught Pokemon
             </NavLink>
-            <NavLink to="/UncaughtPokemon"exact style={linkStyles} activeStyle={hoverStyle}>
+            <NavLink to="/UncaughtPokemon" exact className="linkStyles" activeStyle={hoverStyle}>
                 Uncaught Pokemon
             </NavLink>
-            <NavLink to="/WildPokemon" exact style={linkStyles} activeStyle={hoverStyle}>
+            <NavLink to="/WildPokemon" exact className="linkStyles" activeStyle={hoverStyle}>
                 Wild Pokemon
             </NavLink>
-            <NavLink to="/Bag" exact style={linkStyles} activeStyle={hoverStyle}>
+            <NavLink to="/Bag" exact className="linkStyles" activeStyle={hoverStyle}>
                 Bag
             </NavLink>
-            <NavLink to="/AddPokemon" exact style={linkStyles} activeStyle={hoverStyle}>
+            <NavLink to="/AddPokemon" exact className="linkStyles" activeStyle={hoverStyle}>
                 Add Pokemon
             </NavLink>
         </div>
