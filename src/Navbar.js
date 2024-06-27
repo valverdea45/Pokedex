@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom"
 import './css/NavBar.css'
 
 
-const linkStyles = {
-    display: "inline-block",
-    padding: "12px",
-    margin: "0 6px 6px",
-    background: "blue",
-    textDecoration: "none",
-    color: "white",
-}
+// const linkStyles = {
+//     display: "inline-block",
+//     padding: "12px",
+//     margin: "0 6px 6px",
+//     background: "blue",
+//     textDecoration: "none",
+//     color: "white",
+// }
 
 const hoverStyle = {
     background: "darkblue"
