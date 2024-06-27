@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import Bag from "./Bag";
 // import WildEnounter from "./WildEncounter";
-import './WildPokemon.css'
+import './css/WildPokemon.css'
 
 function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
 
@@ -146,11 +146,11 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     // triedToRun =  false
     // depending on the results of handleCatch these boolean values will change but the useEffect functions above will reset to these default boolean values
 
-    if (!randomPokemon) {
-        return (
-            <p>loading....</p>
-        )
-    }
+    // if (!randomPokemon) {
+    //     return (
+    //         <p>loading....</p>
+    //     )
+    // }
 
     return (
         <body className="container">

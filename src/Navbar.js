@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom"
+import './css/NavBar.css'
+
 
 const linkStyles = {
     display: "inline-block",
@@ -10,19 +12,26 @@ const linkStyles = {
     color: "white",
 }
 
+const hoverStyle = {
+    background: "darkblue"
+}
+
 function Navbar() {
     return (
         <div>
-            <NavLink to="/CaughtPokemon" exact style={linkStyles} activeStyle={{ background: "darkblue" }}>
+            <NavLink to="/CaughtPokemon" exact style={linkStyles} activeStyle={hoverStyle}>
                 Caught Pokemon
             </NavLink>
-            <NavLink to="/UncaughtPokemon"exact style={linkStyles} activeStyle={{ background: "darkblue" }}>
+            <NavLink to="/UncaughtPokemon"exact style={linkStyles} activeStyle={hoverStyle}>
                 Uncaught Pokemon
             </NavLink>
-            <NavLink to="/WildPokemon" exact style={linkStyles} activeStyle={{ background: "darkblue" }}>
+            <NavLink to="/WildPokemon" exact style={linkStyles} activeStyle={hoverStyle}>
                 Wild Pokemon
             </NavLink>
-            <NavLink to="/AddPokemon" exact style={linkStyles} activeStyle={{Background: "darkblue" }}>
+            <NavLink to="/Bag" exact style={linkStyles} activeStyle={hoverStyle}>
+                Bag
+            </NavLink>
+            <NavLink to="/AddPokemon" exact style={linkStyles} activeStyle={hoverStyle}>
                 Add Pokemon
             </NavLink>
         </div>
