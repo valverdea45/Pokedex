@@ -19,6 +19,7 @@ const hoverStyle = {
 function Navbar() {
     return (
         <div className="flex">
+            <img src="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-transparent-png-2.png" className="pokeball"/>
             <NavLink to="/CaughtPokemon" exact className="linkStyles" activeStyle={hoverStyle}>
                 Caught Pokemon
             </NavLink>
