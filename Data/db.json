@@ -79,7 +79,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 11,
@@ -97,7 +97,7 @@
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png"
       },
-      "caught": true
+      "caught": false
     },
     {
       "id": 13,

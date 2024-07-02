@@ -3,8 +3,8 @@
     flex-direction: row;
     justify-content: center;
     background-image: linear-gradient(rgb(253, 44, 56) 3.3%, rgb(176, 2, 12));
-    background-color: ;
     padding: 10px;
+    height: 20vh;
 
 }
 
@@ -24,11 +24,9 @@
 }
 
 .pokeball-left {
-    width: 10vw;
-    padding-right: 6vw;
+    margin-right: auto;
 }
 
 .pokeball-right {
-    width: 10vw;
-    padding-left: 6vw;
+    margin-left: auto;
 }

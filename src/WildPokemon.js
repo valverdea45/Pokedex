@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import Bag from "./Bag";
-// import WildEnounter from "./WildEncounter";
-import './css/WildPokemon.css'
+
+import WildEnounter from "./WildEncounter";
 
 function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
 
-    const navigate = useNavigate()
 
     // add conditional for loading useeffect runs after the initial render.
 
@@ -22,8 +20,6 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     // const [pokemonRan, setPokemonRan] = useState(false)
     // const [triedToRun, setTriedToRun] = useState(false)
     // const [wasClicked, setWasClicked] = useState(false)
-    const [showGrassGlowText, setShowGrassGlowText] = useState(false)
-    const [showBagGlowText, setShowBagGlowText] = useState(false)
     // created a state to display the game
     // const [couldYouRun, setCouldYouRun] = useState(false)
     //current random pokemon
@@ -153,37 +149,11 @@ function WildPokemon({ uncaughtPokemon, handleUpdatePokemon }) {
     // }
 
     return (
-        <body className="container">
-                <div>
-                    {showBagGlowText ?
-                        <div className="hover minor-container" onMouseLeave={() => setShowBagGlowText(false)}>
-                            <img className="image" onClick={() => navigate("/Bag")} src="https://t4.ftcdn.net/jpg/05/72/63/79/360_F_572637924_Q8biPcRDh9V3HNVL8ojaZwwc59t1Qx9p.jpg" alt="bag"/>
-                            <p className="glow-text text">Restock on items!</p>
-                        </div>
-                        :
-                        <div className="hover minor-container"onMouseEnter={() => setShowBagGlowText(true)}>
-                            <img className="image" src="https://t4.ftcdn.net/jpg/05/72/63/79/360_F_572637924_Q8biPcRDh9V3HNVL8ojaZwwc59t1Qx9p.jpg" alt="bag" />
-                            <p className="text">Restock on items!</p> 
-                        </div>
-                    }
-                </div>
+    <div>
 
-                <div>
-                    {showGrassGlowText ?
-                        <div className="hover minor-container" onMouseLeave={() => setShowGrassGlowText(false)}>
-                            <img className="image" onClick={() => navigate("/WildEncounter")} src="https://static.vecteezy.com/system/resources/thumbnails/022/351/056/small_2x/grass-clipart-grass-transparent-background-free-png.png" alt="grass">
-                            </img>
-                            <p className="glow-text text">Find a wild pokemon!</p>
-                        </div>
-                        :
-                        <div className="hover minor-container" onMouseEnter={() => setShowGrassGlowText(true)}>
-                          <img className="image" src="https://static.vecteezy.com/system/resources/thumbnails/022/351/056/small_2x/grass-clipart-grass-transparent-background-free-png.png" alt="grass" />  
-                          <p className="text">Find a wild pokemon!</p>
-                        </div>
-                        
-                    }
-                </div>
-        </body>
+        <img src="https://i.pinimg.com/736x/ef/ff/65/efff65ee37b35ea3b4df426ad32b1097.jpg"/>
+        <WildEnounter/>
+    </div>
     )
 }
 

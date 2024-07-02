@@ -54,9 +54,7 @@ function App() {
 
   return (
     <UpdateFunctionContext.Provider value={handleUpdateddPokemon}>
-    <div>
-    <Navbar />
-    <div className="box"/>
+    <Navbar/>
       <Routes>
         <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={caughtPokemon}/>}/>
         <Route path="/UncaughtPokemon" element={<UncaughtPokemon uncaughtPokemon={uncaughtPokemon}/>}/>
@@ -66,7 +64,6 @@ function App() {
         <Route path="/WildEncounter" element={<WildEnounter/>}/>
         <Route path="/" element={<Home/>}/>
       </Routes>
-    </div>
   </UpdateFunctionContext.Provider>
   );
 }
