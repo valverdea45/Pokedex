@@ -1,9 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { UpdateFunctionContext } from "./App"
 
 function Pokemon({ singlePokemon }) {
 
   const handleUpdate = useContext(UpdateFunctionContext)
+  const [ tradeDescision, setTradeDescision ] = useState(false)
 
   const pokemonCardStyle = {
         margin: "1rem",
@@ -27,6 +28,11 @@ function Pokemon({ singlePokemon }) {
     .then((updatedPokemon) => handleUpdate(updatedPokemon))
   }
 
+  function handleTradeClick() {
+    setTradeDescision(false)
+    handleDeleteClick()
+  }
+
     return (
     <div style={pokemonCardStyle}>
       <div>
@@ -41,7 +47,15 @@ function Pokemon({ singlePokemon }) {
             {singlePokemon.hp} hp
           </span>
         </div>
-        {singlePokemon.caught ? <button onClick={handleDeleteClick}>Release Pokemon</button> : null}
+        <button onClick={handleDeleteClick}>Release Pokemon</button>
+
+        {tradeDescision === false ? <button onClick={() => {setTradeDescision(true)}}>Trade Pokemon</button> 
+        :
+        <div>
+          <p>you will get 150 pokedollars are you sure you want to do this?</p>
+          <button onClick={handleTradeClick}>Yes</button> <button onClick={() => {setTradeDescision(false)}}>No</button>
+        </div> 
+        }
         
       </div>
     </div>

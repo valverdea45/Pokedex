@@ -9,7 +9,7 @@ function Navbar() {
         <div className="flex">
             <img src="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-transparent-png-2.png" className="pokeball-left" alt="pokeballs" />
             <NavLink to="/CaughtPokemon" exact="true" className="linkStyles" >
-                Pokemon PC
+                Pokemon P.C.
             </NavLink>
             <NavLink to="/WildPokemon" exact="true" className="linkStyles" >
                 Safari Zone
