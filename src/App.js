@@ -2,7 +2,7 @@ import React, { useEffect, useState, createContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import CaughtPokemon from "./CaughtPokemon"
 import Navbar from "./Navbar";
-import UncaughtPokemon from "./UncaughtPokemon"
+import Store from "./Store"
 import WildPokemon from "./WildPokemon";
 import Home from "./Home";
 import AddPokemon from "./AddPokemon"
@@ -57,7 +57,7 @@ function App() {
     <Navbar/>
       <Routes>
         <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={caughtPokemon}/>}/>
-        <Route path="/UncaughtPokemon" element={<UncaughtPokemon uncaughtPokemon={uncaughtPokemon}/>}/>
+        <Route path="/Store" element={<Store/>}/>
         <Route path="/WildPokemon" element={<WildPokemon uncaughtPokemon={uncaughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>}/>
         <Route path="/AddPokemon" element={<AddPokemon onAddPokemon={onAddPokemon}/>}/>
         <Route path="/Bag" element={<Bag/>}/>
