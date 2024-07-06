@@ -14,6 +14,12 @@ function CaughtPokemon({ caughtPokemon }) {
         return <Pokemon key={individualPokemon.id} singlePokemon={individualPokemon} />
     })
 
+    function handleNewClick() {
+        fetch("https://pokeapi.co/api/v2/pokemon/rayquaza")
+        .then((data) => data.json())
+        .then((pokemon) => new Audio(pokemon.cries.latest).play())
+    }
+
     return (
         <div>
             <h1>Caught Pokemon</h1>
@@ -21,6 +27,7 @@ function CaughtPokemon({ caughtPokemon }) {
             <br/>
             <label>Search: </label>
             <input onChange={(e) => setSearch(e.target.value)} />
+            <button onClick={handleNewClick}>get pikachu</button>
             <div>{pokemonCards}</div>
         </div>
     )

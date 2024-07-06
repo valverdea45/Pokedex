@@ -4,9 +4,7 @@
       "id": 2,
       "name": "ivysaur",
       "hp": 60,
-      "sprites": {
-        "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      },
+      "sprites": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
       "caught": false
     },
     {
