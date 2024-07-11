@@ -37,15 +37,16 @@ function Pokemon({ singlePokemon }) {
     <div style={pokemonCardStyle}>
       <div>
         <div>
-          <img alt={singlePokemon.name} src={singlePokemon.sprites.front} />
+          <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
         </div>
         <div>
           <div>{singlePokemon.name}</div>
         </div>
         <div>
-          <span>
-            {singlePokemon.hp} hp
-          </span>
+          {singlePokemon.types ? 
+          <div> type: {singlePokemon.types.map((types) => types.type.name)}</div> 
+          : 
+          null }
         </div>
         <button onClick={handleDeleteClick}>Release Pokemon</button>
 

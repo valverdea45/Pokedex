@@ -16,10 +16,16 @@ function App() {
   const [allPokemon, setAllPokemon] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/pokemon")
+    fetch("http://localhost:3000/pokemonId")
       .then((data) => data.json())
-      .then((pokemons) => setAllPokemon(pokemons))
+      .then((pokemonIds) => pokemonIds.map((id) => getAllPokemon(id)))
   }, [])
+
+  function getAllPokemon(id) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    .then((data) => data.json())
+    .then(())
+  }
 
   const caughtPokemon = allPokemon.filter(singlePokemon => singlePokemon.caught === true)
 
@@ -28,6 +34,7 @@ function App() {
 
   function onAddPokemon(newPokemon) {
     setAllPokemon([...allPokemon, newPokemon])
+    console.log(allPokemon)
   }
 
   function handleUpdatePokemon(newPokemon) {
@@ -56,7 +63,7 @@ function App() {
     <UpdateFunctionContext.Provider value={handleUpdateddPokemon}>
     <Navbar/>
       <Routes>
-        <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={caughtPokemon}/>}/>
+        <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={caughtPokemon} onAddPokemon={onAddPokemon}/>}/>
         <Route path="/Store" element={<Store/>}/>
         <Route path="/WildPokemon" element={<WildPokemon uncaughtPokemon={uncaughtPokemon} handleUpdatePokemon={handleUpdatePokemon}/>}/>
         <Route path="/AddPokemon" element={<AddPokemon onAddPokemon={onAddPokemon}/>}/>

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Pokemon from "./Pokemon"
 
-function CaughtPokemon({ caughtPokemon }) {
+function CaughtPokemon({ caughtPokemon, onAddPokemon }) {
 
     const [ search, setSearch ] = useState("")
 
@@ -14,10 +14,20 @@ function CaughtPokemon({ caughtPokemon }) {
         return <Pokemon key={individualPokemon.id} singlePokemon={individualPokemon} />
     })
 
+    function messingAround(pokemon) {
+        new Audio(pokemon.cries.latest).play()
+        onAddPokemon(pokemon)
+    }
+
+    function getRandomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
     function handleNewClick() {
-        fetch("https://pokeapi.co/api/v2/pokemon/rayquaza")
+        const num = getRandomInteger(1, 1025)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
         .then((data) => data.json())
-        .then((pokemon) => new Audio(pokemon.cries.latest).play())
+        .then((pokemon) => messingAround(pokemon))
     }
 
     return (
@@ -27,7 +37,7 @@ function CaughtPokemon({ caughtPokemon }) {
             <br/>
             <label>Search: </label>
             <input onChange={(e) => setSearch(e.target.value)} />
-            <button onClick={handleNewClick}>get pikachu</button>
+            <button onClick={handleNewClick}>get random pokemon</button>
             <div>{pokemonCards}</div>
         </div>
     )
