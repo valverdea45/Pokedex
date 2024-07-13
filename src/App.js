@@ -16,8 +16,6 @@ function App() {
   const [allPokemon, setAllPokemon] = useState([])
 
 
-  
-
   useEffect(() => {
     fetch("http://localhost:3000/pokemonId")
       .then((data) => data.json())
@@ -26,14 +24,18 @@ function App() {
   }, [])
 
   function getAllPokemon(pokemonIds) {
-    console.log(pokemonIds)
-    pokemonIds.forEach((id) => {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then((data) => data.json())
-      .then((pokemon) => setAllPokemon([...allPokemon, pokemon]))
-    })
-    console.log(allPokemon)
-    debugger
+    const urls = []
+    for(let i = 0; i < pokemonIds.length; i++) {
+      let newUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIds[i]}`
+      urls.push(newUrl)
+    }
+
+    const allPromises = urls.map((url) => fetch(url))
+
+    Promise.all(allPromises)
+    .then((responses) => Promise.all(responses.map((response) => response.json())))
+    .then((pokemons) => setAllPokemon(pokemons))
+
   }
 
   function onAddPokemon(newPokemon) {
