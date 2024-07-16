@@ -40,6 +40,15 @@ function App() {
 
   function onAddPokemon(newPokemon) {
     setAllPokemon([...allPokemon, newPokemon])
+    fetch(`http://localhost:3000/pokemonId`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: newPokemon.id
+      })
+    })
     console.log(allPokemon)
   }
 
@@ -54,13 +63,13 @@ function App() {
     setAllPokemon(newArrayOfPokemon)
   }
 
+//   const newReviews = car.reviews.filter((review) => {
+//     return review.id !== toBeDeletedReview.id
+// })
+
   function handleUpdateddPokemon(singlePokemon) {
-    const newArrayOfPokemon = allPokemon.map((pokemon) => {
-      if(pokemon.id === singlePokemon.id) {
-        return singlePokemon
-      } else {
-        return pokemon
-      }
+    const newArrayOfPokemon = allPokemon.filter((pokemon) => {
+      return pokemon.id !== singlePokemon.id
     })
     setAllPokemon(newArrayOfPokemon)
   }
