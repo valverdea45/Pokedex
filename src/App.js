@@ -26,7 +26,7 @@ function App() {
   function getAllPokemon(pokemonIds) {
     const urls = []
     for(let i = 0; i < pokemonIds.length; i++) {
-      let newUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIds[i]}`
+      let newUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIds[i].id}`
       urls.push(newUrl)
     }
 
