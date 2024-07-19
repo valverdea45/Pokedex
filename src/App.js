@@ -49,7 +49,6 @@ function App() {
         id: newPokemon.id
       })
     })
-    console.log(allPokemon)
   }
 
   function handleUpdatePokemon(newPokemon) {

@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { UpdateFunctionContext } from "./App"
+import PokemonImage from "./PokemonImage"
 
 function Pokemon({ singlePokemon }) {
 
@@ -8,6 +9,8 @@ function Pokemon({ singlePokemon }) {
   const [ releaseDescision, setReleaseDescision ] = useState(false)
   const [specie, setSpecie] = useState({})
   const [pokedexEntry, setPokedexEntry] = useState("")
+  const [height, setHeight] = useState("")
+  const [weight, setWeight] = useState("")
 
   const pokemonCardStyle = {
     margin: "1rem",
@@ -24,6 +27,15 @@ function Pokemon({ singlePokemon }) {
       const pokeEntry = pokemonSpecies.flavor_text_entries.filter((entry) => entry.language.name === 'en')
       const lastEntry = pokeEntry[pokeEntry.length - 1].flavor_text
       setPokedexEntry(lastEntry)
+      const totalH = singlePokemon.height * 10 / 30.48
+      const totalHInString = totalH.toString().split(".")
+      const heightInFt = parseInt(totalHInString[0])
+      const heightInFtAfterDecimal = parseFloat(`.${totalHInString[1]}`)
+      const heightInInches = Math.round(heightInFtAfterDecimal * 12)
+      setHeight(`${heightInFt}' ${heightInInches}"`)
+      const weightInPounds = singlePokemon.weight / 4.536
+      const weightRounded = Math.round(weightInPounds*10)/10
+      setWeight(weightRounded)
     })
     // eslint-disable-next-line
   }, [])
@@ -40,14 +52,13 @@ function Pokemon({ singlePokemon }) {
     handleDeleteClick()
   }
 
-  console.log(specie)
-
+  // console.log(specie)
+  console.log(singlePokemon)
 
   return (
     <div style={pokemonCardStyle}>
       <div>
-        <div>
-          <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+        <PokemonImage singlePokemon={singlePokemon}/>
         </div>
         <div>
           <div>{singlePokemon.name}</div>
@@ -77,8 +88,17 @@ function Pokemon({ singlePokemon }) {
           </div>}
         
         <p>{pokedexEntry}</p>
+        <p>Base Stats:</p>
+        <ul>
+        {singlePokemon.stats.map((stat) => {
+          return (
+            <p>{stat.stat.name} {stat.base_stat}</p>
+          )
+        })}
+        </ul>
+        <p>Height: {height}</p>
+        <p>Weight: {weight} lbs</p>
       </div>
-    </div>
   )
 }
 

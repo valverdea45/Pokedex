@@ -27,13 +27,11 @@ function CaughtPokemon({ caughtPokemon, onAddPokemon }) {
         // from 10,001 - 10,277
         const coinFlip = getRandomInteger(1, 2)
         if (coinFlip === 1) {
-            console.log("option 1")
             const num = getRandomInteger(1, 1025)
             fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
                 .then((data) => data.json())
                 .then((pokemon) => messingAround(pokemon))
         } else if (coinFlip === 2) {
-            console.log("option 2")
             const num = getRandomInteger(10001, 10277)
             fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
                 .then((data) => data.json())
