@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { UpdateFunctionContext } from "./App"
 
 function Pokemon({ singlePokemon }) {
 
   const handleUpdate = useContext(UpdateFunctionContext)
   const [tradeDescision, setTradeDescision] = useState(false)
+  const [ releaseDescision, setReleaseDescision ] = useState(false)
+  const [specie, setSpecie] = useState({})
+  const [pokedexEntry, setPokedexEntry] = useState("")
 
   const pokemonCardStyle = {
     margin: "1rem",
@@ -13,6 +16,17 @@ function Pokemon({ singlePokemon }) {
     boxShadow: "10px 10px black",
     background: "#f9f9f0"
   }
+  useEffect(() => {
+    fetch(`${singlePokemon.species.url}`)
+    .then((data) => data.json())
+    .then((pokemonSpecies) => {
+      setSpecie(pokemonSpecies)
+      const pokeEntry = pokemonSpecies.flavor_text_entries.filter((entry) => entry.language.name === 'en')
+      const lastEntry = pokeEntry[pokeEntry.length - 1].flavor_text
+      setPokedexEntry(lastEntry)
+    })
+    // eslint-disable-next-line
+  }, [])
 
   function handleDeleteClick() {
     handleUpdate(singlePokemon)
@@ -25,6 +39,9 @@ function Pokemon({ singlePokemon }) {
     setTradeDescision(false)
     handleDeleteClick()
   }
+
+  console.log(specie)
+
 
   return (
     <div style={pokemonCardStyle}>
@@ -43,16 +60,23 @@ function Pokemon({ singlePokemon }) {
             :
             null}
         </div>
-        <button onClick={handleDeleteClick}>Release Pokemon</button>
+        { releaseDescision ?
+          <div>
+            <p>You are about to release this pokemon are you sure you want to do that?</p>
+            <button onClick={() => handleDeleteClick()}>Yes</button> <button onClick={() => setReleaseDescision(false)}>No</button>
+            <p>note: Once a pokemon is released they cannot be recovered</p>
+          </div>
+         : 
+         <button onClick={() => setReleaseDescision(true)}>Release Pokemon</button>}
 
         {tradeDescision === false ? <button onClick={() => { setTradeDescision(true) }}>Trade Pokemon</button>
           :
           <div>
             <p>you will get 150 pokedollars are you sure you want to do this?</p>
             <button onClick={handleTradeClick}>Yes</button> <button onClick={() => { setTradeDescision(false) }}>No</button>
-          </div>
-        }
-
+          </div>}
+        
+        <p>{pokedexEntry}</p>
       </div>
     </div>
   )
