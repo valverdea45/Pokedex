@@ -1,36 +1,67 @@
-import React, { useState } from "react";
+import React from "react";
 
-function PokemonImage({ singlePokemon }) {
+function PokemonImage({ singlePokemon, imageClick, showShiny, initialRender, clearMessage, setClearMessage }) {
 
-    const [imageClick, setImageClick] = useState(false)
-    const [showShiny, setShowShiny] = useState(false)
 
-    if(singlePokemon.sprites.other.showdown.front_default === null) {
-        if(imageClick && singlePokemon.sprites.back_default) {
-            return (
-                <img alt={singlePokemon.name} src={singlePokemon.sprites.back_default}/>
-            )
-        } else if(imageClick === false && singlePokemon.sprites.front_default){
-            return (
-                <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default}/>
-            )
+    if (singlePokemon.sprites.other.showdown.front_default === null || singlePokemon.sprites.other.showdown.back_default === null) {
+        if (singlePokemon.sprites.front_default && singlePokemon.sprites.back_default) {
+            if (imageClick) {
+                return (
+                    <img alt={singlePokemon.name} src={singlePokemon.sprites.back_default} />
+                )
+            } else {
+                return (
+                    <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+                )
+            }
+        } else {
+            // if (imageClick && initialRender === false) {
+            //     return (
+            //         <div>
+            //             <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+            //             {clearMessage ? null : <div> <p>Sorry! there are no other sprites for this pokemon.</p><button onClick={() => setClearMessage(true)}>X</button> </div>}
+            //         </div>
+            //     )
+            // } else if (imageClick === false && initialRender === false) {
+            //     return (
+            //         <div>
+            //             <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+            //             {clearMessage ? null : <div> <p>Sorry! there are no other sprites for this pokemon.</p><button onClick={() => setClearMessage(true)}>X</button> </div>}
+            //         </div>
+            //     )
+            // } else if (initialRender) {
+            //     return (
+            //         <div>
+            //             <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+            //         </div>
+            //     )
+            // }
+            if (initialRender) {
+                return (
+                    <div>
+                        <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+                    </div>
+                )
+            } else {
+
+                return (
+                    <div>
+                        <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+                        {clearMessage ? null : <div> <p>Sorry! there are no other sprites for this pokemon.</p><button onClick={() => setClearMessage(true)}>x</button> </div>}
+                    </div>
+                )
+            }
         }
     }
 
     return (
         <div>
-            <button onClick={() => setShowShiny(!showShiny)}>Shiny</button>
-            <div onClick={() => setImageClick(!imageClick)}>
-                {
-                    singlePokemon.sprites.other.showdown.front_default === null ?
-                        imageClick ? <img alt={singlePokemon.name} src={singlePokemon.sprites.back_default} /> : <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
-                        :
-                        showShiny ?
-                            imageClick ? <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.back_shiny} /> : <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.front_shiny} />
-                            :
-                            imageClick ? <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.back_default} /> : <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.front_default} />
-                }
-            </div>
+            {
+                showShiny ?
+                    imageClick ? <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.back_shiny} /> : <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.front_shiny} />
+                    :
+                    imageClick ? <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.back_default} /> : <img alt={singlePokemon.name} src={singlePokemon.sprites.other.showdown.front_default} />
+            }
         </div>
     )
 }
