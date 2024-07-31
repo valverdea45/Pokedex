@@ -26,6 +26,7 @@ function Pokemon({ singlePokemon }) {
     fetch(`${singlePokemon.species.url}`)
       .then((data) => data.json())
       .then((pokemonSpecies) => {
+        console.log(pokemonSpecies)
         const pokeEntry = pokemonSpecies.flavor_text_entries.filter((entry) => entry.language.name === 'en')
         const lastEntry = pokeEntry[pokeEntry.length - 1].flavor_text
         setPokedexEntry(lastEntry)
@@ -54,12 +55,12 @@ function Pokemon({ singlePokemon }) {
     handleDeleteClick()
   }
 
-  // console.log(specie)
-  console.log(singlePokemon)
+  // console.log(species)
+  // console.log(singlePokemon)
 
   return (
     <div style={pokemonCardStyle}>
-      {singlePokemon.sprites.other.showdown.front_shiny && singlePokemon.sprites.other.showdown.back_shiny ? <button onClick={() => setShowShiny((showShiny) => !showShiny)}>{showShiny ? `Shiny: On` : "Shiny: Off"}</button> : null}
+      {(singlePokemon.sprites.other.showdown.front_shiny && singlePokemon.sprites.other.showdown.back_shiny) || (singlePokemon.sprites.front_shiny && singlePokemon.sprites.back_shiny) ? <button onClick={() => setShowShiny((showShiny) => !showShiny)}>{showShiny ? `Shiny: On` : "Shiny: Off"}</button> : null}
       <br/>
       <br/>
       <div onClick={() => {

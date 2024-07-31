@@ -4,15 +4,27 @@ function PokemonImage({ singlePokemon, imageClick, showShiny, initialRender, cle
 
 
     if (singlePokemon.sprites.other.showdown.front_default === null || singlePokemon.sprites.other.showdown.back_default === null) {
-        if (singlePokemon.sprites.front_default && singlePokemon.sprites.back_default) {
-            if (imageClick) {
-                return (
-                    <img alt={singlePokemon.name} src={singlePokemon.sprites.back_default} />
-                )
+        if ((singlePokemon.sprites.front_shiny && singlePokemon.sprites.back_shiny) && singlePokemon.sprites.back_default) {
+            if(showShiny) {
+                if (imageClick) {
+                    return (
+                        <img alt={singlePokemon.name} src={singlePokemon.sprites.back_shiny} />
+                    )
+                } else {
+                    return (
+                        <img alt={singlePokemon.name} src={singlePokemon.sprites.front_shiny} />
+                    )
+                }
             } else {
-                return (
-                    <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
-                )
+                if(imageClick) {
+                    return (
+                        <img alt={singlePokemon.name} src={singlePokemon.sprites.back_default} />
+                    )
+                } else {
+                    return (
+                        <img alt={singlePokemon.name} src={singlePokemon.sprites.front_default} />
+                    )
+                }
             }
         } else {
             // if (imageClick && initialRender === false) {
