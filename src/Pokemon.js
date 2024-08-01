@@ -56,7 +56,7 @@ function Pokemon({ singlePokemon }) {
   }
 
   // console.log(species)
-  // console.log(singlePokemon)
+  console.log(singlePokemon)
 
   return (
     <div style={pokemonCardStyle}>
