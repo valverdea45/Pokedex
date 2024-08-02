@@ -14,12 +14,20 @@ export const UpdateFunctionContext = createContext(false)
 function App() {
 
   const [allPokemon, setAllPokemon] = useState([])
+  const [currency, setCurrency] = useState(0)
 
 
   useEffect(() => {
     fetch("http://localhost:3000/pokemonId")
       .then((data) => data.json())
       .then((pokemonIds) => getAllPokemon(pokemonIds))
+     // eslint-disable-next-line
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/currency")
+      .then((data) => data.json())
+      .then((currency) => setCurrency(currency.currency))
      // eslint-disable-next-line
   }, [])
 
@@ -62,10 +70,6 @@ function App() {
     setAllPokemon(newArrayOfPokemon)
   }
 
-//   const newReviews = car.reviews.filter((review) => {
-//     return review.id !== toBeDeletedReview.id
-// })
-
   function handleUpdateddPokemon(singlePokemon) {
     const newArrayOfPokemon = allPokemon.filter((pokemon) => {
       return pokemon.id !== singlePokemon.id
@@ -77,7 +81,7 @@ function App() {
     <UpdateFunctionContext.Provider value={handleUpdateddPokemon}>
     <Navbar/>
       <Routes>
-        <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={allPokemon} onAddPokemon={onAddPokemon}/>}/>
+        <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={allPokemon} onAddPokemon={onAddPokemon} currency={currency} setCurrency={setCurrency}/>}/>
         <Route path="/Store" element={<Store/>}/>
         <Route path="/WildPokemon" element={<WildPokemon handleUpdatePokemon={handleUpdatePokemon}/>}/>
         <Route path="/AddPokemon" element={<AddPokemon onAddPokemon={onAddPokemon}/>}/>

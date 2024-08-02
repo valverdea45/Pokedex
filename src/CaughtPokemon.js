@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Pokemon from "./Pokemon"
 
-function CaughtPokemon({ caughtPokemon, onAddPokemon }) {
+function CaughtPokemon({ caughtPokemon, onAddPokemon, currency, setCurrency }) {
 
     const [search, setSearch] = useState("")
 
@@ -10,7 +10,7 @@ function CaughtPokemon({ caughtPokemon, onAddPokemon }) {
     })
 
     const pokemonCards = filteredPokemon.map((individualPokemon) => {
-        return <Pokemon key={individualPokemon.id} singlePokemon={individualPokemon} />
+        return <Pokemon key={individualPokemon.id} singlePokemon={individualPokemon} currency={currency} setCurrency={setCurrency}/>
     })
 
     function messingAround(pokemon) {
@@ -50,7 +50,7 @@ function CaughtPokemon({ caughtPokemon, onAddPokemon }) {
         }
 
         const pokemonId = createPokemonId()
-        console.log(pokemonId)
+        
 
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
             .then((data) => data.json())

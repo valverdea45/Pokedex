@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react"
 import { UpdateFunctionContext } from "./App"
 import PokemonImage from "./PokemonImage"
 
-function Pokemon({ singlePokemon }) {
+function Pokemon({ singlePokemon, currency, setCurrency }) {
 
   const handleUpdate = useContext(UpdateFunctionContext)
   const [tradeDescision, setTradeDescision] = useState(false)
@@ -14,7 +14,8 @@ function Pokemon({ singlePokemon }) {
   const [showShiny, setShowShiny] = useState(false)
   const [initialRender, setInitialRender] = useState(true)
   const [clearMessage, setClearMessage] = useState(false)
-
+  const [species, setSpecies] = useState({})
+ 
   const pokemonCardStyle = {
     margin: "1rem",
     padding: "1rem",
@@ -26,7 +27,7 @@ function Pokemon({ singlePokemon }) {
     fetch(`${singlePokemon.species.url}`)
       .then((data) => data.json())
       .then((pokemonSpecies) => {
-        console.log(pokemonSpecies)
+        setSpecies(pokemonSpecies)
         const pokeEntry = pokemonSpecies.flavor_text_entries.filter((entry) => entry.language.name === 'en')
         const lastEntry = pokeEntry[pokeEntry.length - 1].flavor_text
         setPokedexEntry(lastEntry)
@@ -50,13 +51,33 @@ function Pokemon({ singlePokemon }) {
     })
   }
 
+  function caculatePokemonWorth(){
+    const cr = species.capture_rate
+    const percentage = Math.round(cr * 100 / 255)
+    const pokemonValueInDollars = 500 * percentage
+    debugger
+    return 122
+  }
+
   function handleTradeClick() {
+
+    fetch("http://localhost:3000/currency", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        currency: currency + 150
+      })
+    })
+    .then((data) => data.json())
+    .then((newCurrency) => setCurrency(newCurrency.currency))
     setTradeDescision(false)
     handleDeleteClick()
   }
 
   // console.log(species)
-  console.log(singlePokemon)
+  // console.log(singlePokemon)
 
   return (
     <div style={pokemonCardStyle}>
@@ -92,7 +113,8 @@ function Pokemon({ singlePokemon }) {
       {tradeDescision === false ? <button onClick={() => { setTradeDescision(true) }}>Trade Pokemon</button>
         :
         <div>
-          <p>you will get 150 pokedollars are you sure you want to do this?</p>
+          <p>{`you will get ${caculatePokemonWorth(singlePokemon.catchRate)} pokedollars are you sure you want to do this?`}</p>
+          <p>your current pokedollars is ${currency}</p>
           <button onClick={handleTradeClick}>Yes</button> <button onClick={() => { setTradeDescision(false) }}>No</button>
         </div>}
 
