@@ -53,10 +53,17 @@ function Pokemon({ singlePokemon, currency, setCurrency }) {
 
   function caculatePokemonWorth(){
     const cr = species.capture_rate
-    const percentage = Math.round(cr * 100 / 255)
-    const pokemonValueInDollars = 500 * percentage
-    debugger
-    return 122
+    const worthDeduction = cr * 2
+    const totalWorth = 500 - worthDeduction
+    if(species.is_mythical){
+      return totalWorth + 1000
+    } else if (species.is_legendary) {
+        return totalWorth + 500
+    } else if (species.is_baby) {
+      return totalWorth - 250
+    }
+
+    return totalWorth
   }
 
   function handleTradeClick() {
@@ -76,12 +83,17 @@ function Pokemon({ singlePokemon, currency, setCurrency }) {
     handleDeleteClick()
   }
 
+  function handleSoundClick() {
+    new Audio(singlePokemon.cries.latest).play()
+  }
+
   // console.log(species)
   // console.log(singlePokemon)
 
   return (
     <div style={pokemonCardStyle}>
       {(singlePokemon.sprites.other.showdown.front_shiny && singlePokemon.sprites.other.showdown.back_shiny) || (singlePokemon.sprites.front_shiny && singlePokemon.sprites.back_shiny) ? <button onClick={() => setShowShiny((showShiny) => !showShiny)}>{showShiny ? `Shiny: On` : "Shiny: Off"}</button> : null}
+      <button onClick={handleSoundClick}>🔊</button>
       <br/>
       <br/>
       <div onClick={() => {
