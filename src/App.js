@@ -82,7 +82,7 @@ function App() {
     <Navbar/>
       <Routes>
         <Route path="/CaughtPokemon" element={<CaughtPokemon caughtPokemon={allPokemon} onAddPokemon={onAddPokemon} currency={currency} setCurrency={setCurrency}/>}/>
-        <Route path="/Store" element={<Store/>}/>
+        <Route path="/Store" element={<Store currency={currency} setCurrency={setCurrency}/>}/>
         <Route path="/WildPokemon" element={<WildPokemon handleUpdatePokemon={handleUpdatePokemon}/>}/>
         <Route path="/AddPokemon" element={<AddPokemon onAddPokemon={onAddPokemon}/>}/>
         <Route path="/Bag" element={<Bag/>}/>

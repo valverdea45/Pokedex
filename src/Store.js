@@ -1,9 +1,12 @@
 import React from "react";
+import ItemList from "./ItemList";
 
-function Store() {
+function Store({ currency, setCurrency }) {
     return (
         <div>
-            <h1>this is the store</h1>
+            <h1>Welcome to the PokeMart!</h1>
+            <p>Pokémon Dollars: ${currency}</p>
+            <ItemList/>
         </div>
     )
 }
