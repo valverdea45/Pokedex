@@ -87,7 +87,7 @@ function Pokemon({ singlePokemon, currency, setCurrency }) {
     new Audio(singlePokemon.cries.latest).play()
   }
 
-  // console.log(species)
+  console.log(species)
   // console.log(singlePokemon)
 
   return (
