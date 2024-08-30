@@ -1,30 +1,30 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Link from 'next/link'
-import '@/app/NavBar.css';
+
 
 
 
 function Navbar() {
     return (
-        <div className="flex">
-            <img src="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-transparent-png-2.png" className="pokeball-left" alt="pokeballs" />
-            <Link href="/CaughtPokemon" className="linkStyles" >
+        <div className="flex justify-evenly flex-row w-screen items-center bg-gradient-to-br from-red-600 to-red-700 py-5">
+            <img src="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-transparent-png-2.png" alt="pokeballs" className="pokeball" />
+            <Link href="/CaughtPokemon" className="blueButtons" >
                 Pokemon P.C.
             </Link>
-            <Link href="/WildPokemon" className="linkStyles" >
+            <Link href="/WildPokemon" className="blueButtons" >
                 Safari Zone
             </Link>
-             <Link href="/Bag" className="linkStyles">
+            <Link href="/Bag" className="blueButtons">
                 Bag
             </Link>
-            <Link href="/AddPokemon" className="linkStyles">
+            <Link href="/AddPokemon" className="blueButtons">
                 Add Pokemon
             </Link>
-            <Link href="/Store" className="linkStyles">
+            <Link href="/Store" className="blueButtons">
                 Store
             </Link>
-            <img src="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-transparent-png-2.png" className="pokeball-right" alt="pokeballs" />
+            <img src="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-transparent-png-2.png" alt="pokeballs" className="pokeball"/>
         </div>
     )
 }

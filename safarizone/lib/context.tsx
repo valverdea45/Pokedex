@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState, useContext, createContext } from "react";
 
-const UpdateFunctionContext = createContext(false)
+const UpdateFunctionContext = createContext<(singlePokemon: Pokemon) => void>(() => {})
 
 export function useData() {
   return (
